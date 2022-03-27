@@ -10,7 +10,7 @@ runs:
         cache: pip
 
     - name: Install Dependencies
-      run: pip install -r requirements.txt
+      run: pip install -U -r requirements.txt
 
     - name: Run Compstate Validation
       run: ./validate.py
