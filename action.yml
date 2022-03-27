@@ -10,12 +10,15 @@ runs:
         cache: pip
 
     - name: Install Dependencies
+      shell: bash
       run: pip install -U -r requirements.txt
 
     - name: Run Compstate Validation
+      shell: bash
       run: ${{ github.action_path }}/validate.py .
 
     - name: Run Scoring tests
+      shell: bash
       run:
         python3 -m unittest discover --buffer scoring/
 
