@@ -1,0 +1,25 @@
+name: SRComp Validate Action
+description: A GitHub Action to validate a compstate.
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/checkout@v3
+      with:
+        python-version: '3.10'
+        cache: pip
+
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run Compstate Validation
+      run: ./validate.py
+
+    - name: Run Scoring tests
+      run:
+        python3 -m unittest discover --buffer scoring/
+
+        if [ -d scoring/tests/ ]
+        then
+          python3 -m unittest discover --buffer scoring/tests/
+        fi
