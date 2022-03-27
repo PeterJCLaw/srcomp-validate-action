@@ -13,7 +13,7 @@ runs:
       run: pip install -U -r requirements.txt
 
     - name: Run Compstate Validation
-      run: ./validate.py
+      run: ${{ github.action_path }}/validate.py .
 
     - name: Run Scoring tests
       run:
