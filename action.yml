@@ -6,7 +6,7 @@ runs:
     - name: Copy requirements locally
       id: copy-requirements
       shell: bash
-      run:
+      run: |
         # `cache-dependency-path` seems to need to be within the current directory. Use a temporary directory
         #
         tempdir=$(mktemp --directory --tmpdir=. --suffix=-srcomp-validate-action)
@@ -30,7 +30,7 @@ runs:
 
     - name: Run Scoring tests
       shell: bash
-      run:
+      run: |
         python3 -m unittest discover --buffer scoring/
 
         if [ -d scoring/tests/ ]
