@@ -12,7 +12,7 @@ name: Validate
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
