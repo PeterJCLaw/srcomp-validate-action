@@ -11,7 +11,7 @@ runs:
         #
         tempdir=$(mktemp --directory --tmpdir=. --suffix=-srcomp-validate-action)
         cp ${{ github.action_path }}/**requirements.txt $tempdir
-        echo "::set-output name=directory::${tempdir}"
+        echo "directory=${tempdir}" >> $GITHUB_OUTPUT
 
     - name: Set up Python
       uses: actions/setup-python@v4
