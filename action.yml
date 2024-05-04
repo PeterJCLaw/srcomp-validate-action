@@ -20,9 +20,9 @@ runs:
         cache: pip
         cache-dependency-path: ${{ steps.copy-requirements.outputs.directory }}/**requirements.txt
 
-    - name: Install Test Dependencies
+    - name: Install Dependencies
       shell: bash
-      run: pip install -U -r ${{ steps.copy-requirements.outputs.directory }}/test-requirements.txt
+      run: pip install -U -r ${{ steps.copy-requirements.outputs.directory }}/requirements.txt
 
     - name: Run Scoring tests
       shell: bash
@@ -33,10 +33,6 @@ runs:
         then
           python3 -m unittest discover --buffer scoring/tests/
         fi
-
-    - name: Install Dependencies
-      shell: bash
-      run: pip install -U -r ${{ steps.copy-requirements.outputs.directory }}/requirements.txt
 
     - name: Run Compstate Validation
       shell: bash
