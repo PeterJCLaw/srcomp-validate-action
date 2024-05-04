@@ -1,0 +1,22 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  self-test-happy-path:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: PeterJCLaw/dummy-comp
+          ref: 811452ba69bfa839fc6e80b40e8d6d3ceae8067d
+
+      - uses: actions/checkout@v3
+        with:
+          path: srcomp-validate-action
+
+      - uses: ./srcomp-validate-action
