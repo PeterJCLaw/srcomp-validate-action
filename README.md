@@ -19,6 +19,6 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
       - uses: PeterJCLaw/srcomp-validate-action@v0.7
 ```

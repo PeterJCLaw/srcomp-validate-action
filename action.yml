@@ -14,7 +14,7 @@ runs:
         echo "directory=${tempdir}" >> $GITHUB_OUTPUT
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v6
       with:
         python-version: '3.10'
         cache: pip
