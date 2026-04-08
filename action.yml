@@ -27,11 +27,27 @@ runs:
     - name: Run Scoring tests
       shell: bash
       run: |
+        # Do our own error handling as unittest discover exits with code 5 to
+        # mean "no tests found", which is fine.
+        set +e
         python3 -m unittest discover --buffer scoring/
+        result=$?
+        set -x
+        if [ "$result" -ne 0 ] && [ "$result" -ne 5 ]
+        then
+          exit $result
+        fi
 
         if [ -d scoring/tests/ ]
         then
+          set +e
           python3 -m unittest discover --buffer scoring/tests/
+          set -x
+          result=$?
+          if [ "$result" -ne 0 ] && [ "$result" -ne 5 ]
+          then
+            exit $result
+          fi
         fi
 
     - name: Run Compstate Validation
