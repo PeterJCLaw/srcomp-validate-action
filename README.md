@@ -20,5 +20,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: PeterJCLaw/srcomp-validate-action@v0.7
+      - uses: PeterJCLaw/srcomp-validate-action@v0.8
 ```
